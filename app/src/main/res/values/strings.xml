@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Networking Final</string>
+    <string name="sign_up"><u>SIGN UP</u>
+    </string>
+    <string name="sign_in"><u>SIGN IN</u>
+    </string>
+
+</resources>

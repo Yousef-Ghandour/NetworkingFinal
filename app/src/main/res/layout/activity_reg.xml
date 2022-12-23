@@ -48,7 +48,7 @@
                 android:textSize="@dimen/_12ssp" />
         </RadioGroup>
         <EditText
-            android:id="@+id/etFullName"
+            android:id="@+id/etNameReg"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
             android:hint="Full Name"
@@ -61,7 +61,7 @@
             android:drawableEnd="@drawable/ic_email"
             android:inputType="textEmailAddress"/>
         <EditText
-            android:id="@+id/etEmail"
+            android:id="@+id/etEmailReg"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
             android:hint="Email"
@@ -69,7 +69,7 @@
             android:paddingStart="@dimen/_10sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etFullName"
+            app:layout_constraintTop_toBottomOf="@id/etNameReg"
             android:layout_marginVertical="@dimen/_20sdp"
             android:drawableEnd="@drawable/ic_email"
             android:inputType="textEmailAddress"/>
@@ -82,12 +82,12 @@
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etEmail"
+            app:layout_constraintTop_toBottomOf="@id/etEmailReg"
             android:layout_marginVertical="@dimen/_20sdp"
             android:drawableEnd="@drawable/ic_email"
             android:inputType="textEmailAddress"/>
         <EditText
-            android:id="@+id/etPassLogin"
+            android:id="@+id/etPassReg"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
             android:hint="********"
@@ -98,17 +98,45 @@
             android:layout_marginVertical="@dimen/_20sdp"
             android:drawableEnd="@drawable/ic_show"
             android:inputType="textPassword"/>
+        <RadioGroup
+            android:id="@+id/rgJob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPassReg"
+            android:layout_marginVertical="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+            <RadioButton
+                android:id="@+id/rbSmith"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smith"
+                android:buttonTint="#0E4DFB"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                />
+            <RadioButton
+                android:id="@+id/rbCarpenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carpenter"
+                android:buttonTint="#0E4DFB"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:textSize="@dimen/_12ssp"
+                />
+        </RadioGroup>
         <CheckBox
             android:id="@+id/cbTerms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="I Read and Accept Home Service Terms And Conditions"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etPassLogin"
+            app:layout_constraintTop_toBottomOf="@id/rgJob"
             android:textSize="@dimen/_10ssp"
             android:layout_marginHorizontal="@dimen/_10ssp"
             android:layout_marginVertical="@dimen/_10ssp"
-            android:checked="true"
             android:buttonTint="#0E4DFB"/>
 
 
@@ -124,6 +152,7 @@
             android:textColor="@color/black"
             android:textSize="@dimen/_12ssp"/>
         <TextView
+            android:id="@+id/tvSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sign_in"
@@ -133,10 +162,10 @@
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginVertical="@dimen/_3sdp"/>
         <Button
-            android:id="@+id/btLogin"
+            android:id="@+id/btRegister"
             android:layout_width="@dimen/_130sdp"
             android:layout_height="@dimen/_50sdp"
-            android:text="Login"
+            android:text="Register"
             android:textSize="@dimen/_13ssp"
             android:backgroundTint="#346EDF"
             app:layout_constraintEnd_toEndOf="parent"

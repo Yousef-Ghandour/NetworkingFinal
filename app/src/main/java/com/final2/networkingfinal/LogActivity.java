@@ -28,7 +28,7 @@ public class LogActivity extends AppCompatActivity {
     ActivityLogBinding binding;
     RequestQueue queue;
     JsonObjectRequest request;
-    String token;
+    public static String TOKEN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +65,16 @@ public class LogActivity extends AppCompatActivity {
             request = new JsonObjectRequest(POST, APIUserLogin, object, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
+
                     try {
-                        if(response.getBoolean("success") == true){
+                        if(response.getBoolean("success")){
+                            JSONObject data = response.getJSONObject("data");
                             Toast.makeText(LogActivity.this, "" + response.getString("message"), Toast.LENGTH_SHORT).show();
-//                            token = "Bearer" + " " +  response.getString("token");
+                            TOKEN = "Bearer" + " " +  data.getString("token");
 
                             Intent intent = new Intent(LogActivity.this , CustomerMainActivity.class);
-//                            intent.putExtra("token" , token);
+                            intent.putExtra("token" , TOKEN);
+                            Log.e("token", TOKEN + "");
                             startActivity(intent);
                         } else{
                             Toast.makeText(LogActivity.this, "" + response.getString("message"), Toast.LENGTH_SHORT).show();
@@ -84,7 +87,7 @@ public class LogActivity extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-
+                    Toast.makeText(LogActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 }
             });
         } catch (JSONException e) {

@@ -4,9 +4,9 @@ import static com.final2.networkingfinal.Commons.Common.APIAllWorks;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -39,6 +39,9 @@ public class CustomerMainActivity extends AppCompatActivity {
         binding.rvCustomerRecycler.setLayoutManager(new GridLayoutManager(this , 2));
         getAllWorks();
         binding.rvCustomerRecycler.setAdapter(adapter);
+        String token = getIntent().getStringExtra("token");
+        Intent intent = new Intent(CustomerMainActivity.this , OrderActivity.class);
+        intent.putExtra("token" , token);
     }
     void getAllWorks(){
         StringRequest request = new StringRequest(Request.Method.GET, APIAllWorks, new Response.Listener<String>() {
@@ -74,4 +77,6 @@ public class CustomerMainActivity extends AppCompatActivity {
         Volley.newRequestQueue(this).add(request);
 
     }
+
+
 }

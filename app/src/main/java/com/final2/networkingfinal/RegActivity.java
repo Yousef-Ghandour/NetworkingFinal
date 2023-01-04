@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -39,11 +40,17 @@ public class RegActivity extends AppCompatActivity {
         binding = ActivityRegBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         queue = Volley.newRequestQueue(RegActivity.this);
-        if(binding.rbServiceProvider.isChecked()){
-            binding.rgJob.setVisibility(View.VISIBLE);
-        } else if (binding.rbCustomer.isChecked()){
-            binding.rgJob.setVisibility(View.GONE);
-        }
+        binding.rgGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if(binding.rbServiceProvider.isChecked()){
+                    binding.rgJob.setVisibility(View.VISIBLE);
+                } else if (binding.rbCustomer.isChecked()){
+                    binding.rgJob.setVisibility(View.GONE);
+                }
+            }
+        });
+
         binding.ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
